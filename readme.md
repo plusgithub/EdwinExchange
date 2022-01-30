@@ -38,3 +38,23 @@ Exchange.class. This will then allow you to implement custom logic into each req
 return the custom responses you created earlier, rather than the default ones included. This allows you to
 have full control over the data sent and how it's adapted on the way back, whilst keeping all exchanges and responses
 able to be formed into structured data sources.
+
+## OrderRequest
+
+##### Info
+Order requests are used to request either a buy or sell order. This is dictated by the 'Side' enum which we can then pass
+into our classes as either 'BUY' or 'SELL'. You can instantiate the correct order type, e.g. TakeOrderRequest.class for
+a take profit order, and apply the needed information. This object can then be passed through into the placeOrder function
+and this function in YourExchange.class should handle it depending on the type it's using. These objects are also reusable
+as they only store data, so we can keep them and use them later on if we needed to trade at intervals with the exact same
+information.
+
+##### Classes
+<ol>
+    <li>LimitOrderRequest</li>
+    <li>MarketOrderRequest</li>
+    <li>StopLimitOrderRequest</li>
+    <li>StopOrderRequest</li>
+    <li>TakeLimitOrderRequest</li>
+    <li>TakeOrderRequest</li>
+</ol>

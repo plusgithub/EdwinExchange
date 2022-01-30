@@ -1,5 +1,6 @@
 package com.scuffi.exchange;
 
+import com.scuffi.exchange.request.OrderRequest;
 import com.scuffi.exchange.response.types.connection.PingResponse;
 import com.scuffi.exchange.response.types.connection.ServerTimeResponse;
 import com.scuffi.exchange.response.types.wallet.*;
@@ -122,18 +123,9 @@ public abstract class Exchange {
 
     /**
      * Place a market order, buy immediately, cannot verify price of purchase will be the same at confirmation time
-     * @param coin The coin abbreviation, e.g. BTC
-     * @param amount The amount of the coin to purchase
+     * @param orderRequest An extended OrderRequest classed filled with the needed information for that order
      */
-    public abstract void placeMarketOrder(String coin, Double amount);
-
-    /**
-     * Place a limit order, will only purchase when atPrice is equal or higher than current price
-     * @param coin The coin abbreviation, e.g. BTC
-     * @param amount The amount of the coin to purchase
-     * @param atPrice The price point the order should purchase at
-     */
-    public abstract void placeLimitOrder(String coin, Double amount, Double atPrice);
+    public abstract void placeOrder(OrderRequest orderRequest);
 
     /**
      * Get the current unfulfilled/open orders for this exchange
