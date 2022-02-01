@@ -12,6 +12,8 @@ public abstract class PingResponse extends Response {
 		super(response);
 	}
 
+	public void setSuccess(boolean bool) { this.success = bool; }
+
 	public boolean isSuccess() {
 		return success;
 	}

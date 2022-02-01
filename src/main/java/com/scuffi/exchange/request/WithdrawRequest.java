@@ -1,7 +1,5 @@
 package com.scuffi.exchange.request;
 
-import javax.swing.*;
-
 public class WithdrawRequest {
 
 	private String symbol;
