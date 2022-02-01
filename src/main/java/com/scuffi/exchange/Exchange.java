@@ -1,12 +1,15 @@
 package com.scuffi.exchange;
 
 import com.scuffi.exchange.request.OrderRequest;
+import com.scuffi.exchange.request.WithdrawRequest;
+import com.scuffi.exchange.response.EdwinWithdrawal;
 import com.scuffi.exchange.response.types.connection.PingResponse;
 import com.scuffi.exchange.response.types.connection.ServerTimeResponse;
 import com.scuffi.exchange.response.types.wallet.*;
 import com.scuffi.exchange.response.types.trading.QueryOpenOrdersResponse;
 import com.scuffi.exchange.response.types.trading.QueryOrderResponse;
 import com.scuffi.exchange.response.types.trading.QueryTradesResponse;
+import com.scuffi.exchange.trades.EdwinOrder;
 
 public abstract class Exchange {
 
@@ -125,7 +128,7 @@ public abstract class Exchange {
      * Place a market order, buy immediately, cannot verify price of purchase will be the same at confirmation time
      * @param orderRequest An extended OrderRequest classed filled with the needed information for that order
      */
-    public abstract void placeOrder(OrderRequest orderRequest);
+    public abstract EdwinOrder placeOrder(OrderRequest orderRequest);
 
     /**
      * Get the current unfulfilled/open orders for this exchange
@@ -143,11 +146,9 @@ public abstract class Exchange {
 
     /**
      * Withdraw currencies to a wallet
-     * @param coin The coin to withdraw
-     * @param wallet The wallet to withdraw to
-     * @param amount The amount of the currency to withdraw
+     * @param withdrawRequest The withdraw request containing needed withdraw information
      */
-    public abstract void withdraw(String coin, String wallet, Double amount);
+    public abstract EdwinWithdrawal withdraw(WithdrawRequest withdrawRequest);
 
     /**
      * Get the address to deposit currencies into
