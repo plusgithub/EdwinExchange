@@ -16,13 +16,11 @@ public class Response {
 	private final int statusCode;
 	private final String body;
 	private final JsonNode json;
-//	public final Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
 	public Response(HttpResponse<String> response) {
 		JsonNode json1;
 		this.statusCode = response.statusCode();
 		this.body = response.body();
-//		this.json = gson.fromJson(this.body, JsonObject.class);
 
 		ObjectMapper mapper = new ObjectMapper();
 
